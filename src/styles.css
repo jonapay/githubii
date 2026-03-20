@@ -1,0 +1,154 @@
+:root {
+  color-scheme: dark;
+  --page-navy: #07121b;
+  --page-deep: #0c2532;
+  --page-haze: rgba(138, 197, 224, 0.18);
+  --frame-outer: rgba(203, 226, 239, 0.16);
+  --frame-inner: rgba(247, 234, 203, 0.08);
+  --frame-shadow: rgba(3, 11, 18, 0.55);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-family: "Manrope", sans-serif;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(248, 226, 163, 0.14), transparent 26%),
+    radial-gradient(circle at 80% 12%, rgba(111, 195, 239, 0.18), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(245, 195, 118, 0.08), transparent 35%),
+    linear-gradient(180deg, #051018 0%, #0b2230 36%, #11364a 72%, #091621 100%);
+  overflow: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(80px);
+}
+
+body::before {
+  top: -8vh;
+  left: -10vw;
+  width: 34vw;
+  height: 34vw;
+  background: rgba(133, 205, 245, 0.15);
+}
+
+body::after {
+  right: -8vw;
+  bottom: -10vh;
+  width: 30vw;
+  height: 30vw;
+  background: rgba(255, 211, 139, 0.12);
+}
+
+#app {
+  width: 100%;
+}
+
+.app-shell {
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 2vw, 22px);
+}
+
+.stage-shell {
+  position: relative;
+  width: min(calc(100vw - 28px), calc((100vh - 28px) * 16 / 9), 1440px);
+  aspect-ratio: 16 / 9;
+  padding: clamp(10px, 1.2vw, 16px);
+  border-radius: 34px;
+  background:
+    linear-gradient(160deg, rgba(247, 233, 205, 0.08), rgba(247, 233, 205, 0.02)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+  border: 1px solid var(--frame-outer);
+  box-shadow:
+    0 36px 120px var(--frame-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+.stage-shell::before,
+.stage-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.stage-shell::before {
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 16%),
+    linear-gradient(315deg, rgba(255, 255, 255, 0.06), transparent 22%);
+  mix-blend-mode: screen;
+}
+
+.stage-shell::after {
+  inset: 10px;
+  border-radius: 26px;
+  border: 1px solid var(--frame-inner);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #0a1823 0%, #143246 54%, #102333 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 10px 28px rgba(5, 14, 22, 0.38);
+  outline: none;
+}
+
+canvas:focus-visible {
+  box-shadow:
+    0 0 0 2px rgba(247, 220, 167, 0.66),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 10px 28px rgba(5, 14, 22, 0.38);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 920px) {
+  .stage-shell {
+    width: min(calc(100vw - 18px), calc((100vh - 18px) * 16 / 9));
+    padding: 8px;
+    border-radius: 24px;
+  }
+
+  .stage-shell::after {
+    inset: 8px;
+    border-radius: 18px;
+  }
+
+  canvas {
+    border-radius: 18px;
+  }
+}

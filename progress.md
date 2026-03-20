@@ -9,3 +9,16 @@ Original prompt: baue einen flappy bird app clone
 - `output/web-game-restart/shot-0.png`: aktive Runde nach Neustart sichtbar, Status `mode=playing`.
 - `output/web-game-score-2/shot-0.png` und `output/web-game/shot-0.png`: Kollision/Game-Over sichtbar, Status `mode=gameover`.
 - Restpunkt: Score-Inkrement ist implementiert, aber im automatisierten Burst noch nicht mit einer erfolgreichen Pipe-Passage belegt.
+- Neuer Wunsch: grundlegender Umbau auf 3D-POV-Sicht im Browser statt 2D-Sideview.
+- Umsetzung gestartet: Landscape-Canvas, Perspektivprojektion, Cockpit-Overlay und frontal anfliegende Pipe-Segmente ersetzen die alte 2D-Darstellung.
+- POV-Version umgesetzt und per Browserlauf geprueft:
+- `output/pov-start/shot-0.png`: Startscreen im 3D-Tunnel, Status `mode=start`.
+- `output/pov-flight/shot-0.png`: aktive Flugszene mit frontal anfliegendem Gate, Status `mode=playing`.
+- `output/pov-crash/shot-0.png`: Game-Over-Overlay in POV, Status `mode=gameover`.
+- `output/pov-crash-restart/state-0.json`: Neustart nach Crash landet wieder in `mode=playing`.
+- `output/pov-score-fast/state-0.json`: erfolgreicher Score-Pfad verifiziert, Status `score=6`, `best=6`.
+- Feintuning fuer die ersten Gates nachgezogen: freundlichere Intro-Gaps und etwas groessere Oeffnungen fuer bessere Lesbarkeit im 3D-Startsegment.
+- Grundlegender Rebuild gestartet gemaess Produktplan:
+- Tooling wird auf `Vite + Three.js` umgestellt.
+- Sichtbare App wird von der alten Einzeldatei auf eine modulare `src/`-Struktur verlagert.
+- Neuer Ansatz: echte WebGL-Szene wird in eine sichtbare 2D-Kompositions-Canvas gezeichnet, damit 3D-Bild und UI/HUD gemeinsam im Test-Artefakt landen.
