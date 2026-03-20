@@ -1,0 +1,24 @@
+{
+  "name": "githubii",
+  "version": "1.0.0",
+  "description": "Ein kleiner Flappy-Bird-Klon als statische Canvas-App.",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonapay/githubii.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jonapay/githubii/issues"
+  },
+  "homepage": "https://github.com/jonapay/githubii#readme",
+  "dependencies": {
+    "playwright": "^1.58.2"
+  }
+}

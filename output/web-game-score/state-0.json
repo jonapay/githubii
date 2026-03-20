@@ -1,0 +1,1 @@
+{"coordinateSystem":"origin top-left, +x right, +y down","mode":"gameover","score":0,"best":0,"bird":{"x":134.4,"y":305.3,"vy":42.7,"radius":18},"pipes":[{"x":149.8,"width":76,"gapTop":309.1,"gapBottom":495.1,"scored":false},{"x":407.7,"width":76,"gapTop":106.4,"gapBottom":292.4,"scored":false}],"floorY":600}
